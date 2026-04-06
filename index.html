@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToolHub | All-in-One Modern Web Tools</title>
+    
+    <title>VortexTools | Free Online Image, PDF & Math Tools</title>
+    <meta name="description" content="VortexTools offers free online professional tools: Image to PDF, Cropper, Resizer, EMI Calculator, Age Calculator, and Scientific Math tools. No data storage, 100% secure.">
+    <meta name="keywords" content="Image to PDF, Image Cropper, EMI Calculator, Age Calculator, Unit Converter, GST Calculator, Word Counter, Online Tools, VortexTools">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -42,7 +45,6 @@
             border-radius: 24px;
         }
 
-        /* Ad Banner Styles */
         .ad-banner {
             width: 100%;
             background: rgba(255,255,255,0.03);
@@ -100,158 +102,90 @@
         .stat-item { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; text-align: center; }
         .stat-value { display: block; font-size: 1.2rem; font-weight: 700; color: var(--accent); }
 
-        /* Calculator Specifics */
-        .calc-screen { background: #000; padding: 20px; border-radius: 12px; text-align: right; font-size: 1.5rem; margin-bottom: 15px; overflow: hidden; }
+        .cropper-wrapper { max-height: 500px; margin-bottom: 20px; overflow: hidden; background: #000; border-radius: 12px; }
+        #cropImage { max-width: 100%; display: block; }
+
+        .calc-screen { background: #000; padding: 20px; border-radius: 12px; text-align: right; font-size: 1.5rem; margin-bottom: 15px; min-height: 70px; word-wrap: break-word; }
         .calc-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .btn-calc { padding: 15px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: white; cursor: pointer; font-size: 1.2rem; }
+        .btn-calc { padding: 15px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: white; cursor: pointer; font-size: 1.1rem; }
         .btn-calc:hover { background: rgba(255,255,255,0.2); }
 
+        /* SEO & Policy Styling */
+        .seo-desc { margin-top: 50px; text-align: left; padding: 30px; color: var(--text-dim); }
+        .seo-desc h2 { color: var(--accent); margin-bottom: 15px; }
         footer { border-top: 1px solid var(--glass-border); padding: 40px 0; margin-top: 60px; text-align: center; color: var(--text-dim); }
-
-        #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #000; padding: 10px 25px; border-radius: 50px; font-weight: 600; display: none; z-index: 2000; }
+        .footer-links a { color: var(--accent); text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="container nav-content">
-            <div class="logo" onclick="showHome()">ToolHub</div>
+            <div class="logo" onclick="showHome()">VortexTools</div>
             <button class="btn btn-outline" onclick="showHome()">Explore Tools</button>
         </div>
     </nav>
 
     <div class="container">
-        <div class="ad-banner">
-            <div>- Advertisement -</div>
-        </div>
+        <div class="ad-banner"><div>- Advertisement -</div></div>
 
         <section id="homePage">
             <div class="hero">
-                <h1>Professional Creator & Math Tools</h1>
-                <input type="text" class="search-bar" id="toolSearch" placeholder="Search for tools (PDF, EMI, Trig, Resize)..." onkeyup="filterTools()">
+                <h1>Professional Creator & Math Suite</h1>
+                <p style="color:var(--text-dim)">Fast, Secure and Browser-Based Utilities for Everyone.</p>
+                <input type="text" class="search-bar" id="toolSearch" placeholder="Search for tools (EMI, PDF, Crop)..." onkeyup="filterTools()">
+            </div>
+            
+            <div class="tool-grid" id="toolGrid">
+                <div class="tool-card glass" onclick="openTool('imgToPdf')"><span class="tool-icon">📄</span><h3>Image to PDF</h3><p>Convert images to high-quality PDF.</p></div>
+                <div class="tool-card glass" onclick="openTool('imgCrop')"><span class="tool-icon">✂️</span><h3>Image Cropper</h3><p>Precision cropping and rotation.</p></div>
+                <div class="tool-card glass" onclick="openTool('imgResize')"><span class="tool-icon">📐</span><h3>Image Resizer</h3><p>Change pixel dimensions easily.</p></div>
+                <div class="tool-card glass" onclick="openTool('emiTool')"><span class="tool-icon">🏦</span><h3>EMI Calculator</h3><p>Loan and interest breakdown.</p></div>
+                <div class="tool-card glass" onclick="openTool('ageTool')"><span class="tool-icon">🎂</span><h3>Age Calculator</h3><p>Exact age in years, months, days.</p></div>
+                <div class="tool-card glass" onclick="openTool('mathTool')"><span class="tool-icon">🔢</span><h3>Scientific Calculator</h3><p>Standard and Trig functions.</p></div>
+                <div class="tool-card glass" onclick="openTool('unitTool')"><span class="tool-icon">📏</span><h3>Unit Converter</h3><p>Convert Length, Weight, Temp.</p></div>
+                <div class="tool-card glass" onclick="openTool('gstTool')"><span class="tool-icon">💰</span><h3>GST Calculator</h3><p>Quick tax calculations.</p></div>
+                <div class="tool-card glass" onclick="openTool('wordCounter')"><span class="tool-icon">📝</span><h3>Word Counter</h3><p>Text analysis tool.</p></div>
             </div>
 
-            <div class="tool-grid" id="toolGrid">
-                <div class="tool-card glass" onclick="openTool('imgToPdf')">
-                    <span class="tool-icon">📄</span>
-                    <h3>Image to PDF</h3>
-                    <p>Convert multiple images into a single high-quality PDF file.</p>
-                </div>
-
-                <div class="tool-card glass" onclick="openTool('imgCrop')">
-                    <span class="tool-icon">✂️</span>
-                    <h3>Image Cropper</h3>
-                    <p>Crop, rotate, and zoom images with professional precision.</p>
-                </div>
-
-                <div class="tool-card glass" onclick="openTool('imgResize')">
-                    <span class="tool-icon">📐</span>
-                    <h3>Advanced Resizer</h3>
-                    <p>Resize images by custom width and height dimensions.</p>
-                </div>
-
-                <div class="tool-card glass" onclick="openTool('wordCounter')">
-                    <span class="tool-icon">📝</span>
-                    <h3>Word Counter</h3>
-                    <p>Analyze text length, words, and characters instantly.</p>
-                </div>
-                
-                <div class="tool-card glass" onclick="openTool('gstTool')">
-                    <span class="tool-icon">💰</span>
-                    <h3>GST Calculator</h3>
-                    <p>Quick GST calculations for business owners.</p>
-                </div>
-
-                <div class="tool-card glass" onclick="openTool('emiTool')">
-                    <span class="tool-icon">🏦</span>
-                    <h3>EMI Calculator</h3>
-                    <p>Calculate your monthly loan EMI with interest breakdown.</p>
-                </div>
-
-                <div class="tool-card glass" onclick="openTool('ageTool')">
-                    <span class="tool-icon">🎂</span>
-                    <h3>Age Calculator</h3>
-                    <p>Find exact age in years, months, and days.</p>
-                </div>
-
-                <div class="tool-card glass" onclick="openTool('mathTool')">
-                    <span class="tool-icon">🔢</span>
-                    <h3>Math Calculator</h3>
-                    <p>Standard scientific calculator for daily math tasks.</p>
-                </div>
-
-                <div class="tool-card glass" onclick="openTool('unitTool')">
-                    <span class="tool-icon">📏</span>
-                    <h3>Unit Converter</h3>
-                    <p>Convert between CM, Meters, KM, Decimetres, etc.</p>
-                </div>
-
-                <div class="tool-card glass" onclick="openTool('trigTool')">
-                    <span class="tool-icon">📐</span>
-                    <h3>Trigonometry</h3>
-                    <p>Calculate Sin, Cos, Tan and other trig values.</p>
-                </div>
+            <div class="seo-desc glass">
+                <h2>All-in-One Professional Web Toolkit</h2>
+                <p>Welcome to <strong>VortexTools</strong>, the most reliable platform for digital creators and students. Our <strong>Image to PDF converter</strong> ensures your documents are ready in seconds. Use our <strong>Scientific Calculator</strong> for complex math or the <strong>EMI Calculator</strong> for financial planning. We prioritize your privacy—all tools work directly in your browser, meaning your files are never uploaded to our servers.</p>
             </div>
         </section>
 
         <section id="imgToPdf" class="tool-section">
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">Images to PDF Converter</h2>
+                <h2 style="margin: 20px 0;">Images to PDF</h2>
                 <input type="file" id="pdfInput" accept="image/*" multiple>
-                <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="convertToPdf()">Generate & Download PDF</button>
+                <button class="btn btn-primary" style="width:100%" onclick="convertToPdf()">Download PDF</button>
             </div>
         </section>
 
         <section id="imgCrop" class="tool-section">
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">Professional Image Cropper</h2>
+                <h2 style="margin: 20px 0;">Image Cropper</h2>
                 <input type="file" id="cropInput" accept="image/*" onchange="initCropper(event)">
-                <div class="cropper-container" id="cropperWrapper" style="display:none;"><img id="cropImage"></div>
-                <div id="cropControls" style="display:none; gap: 10px;"><button class="btn btn-primary" onclick="getCroppedImg()">Crop & Download</button></div>
+                <div class="cropper-wrapper" id="cropperBox" style="display:none;"><img id="cropImage"></div>
+                <div id="cropActions" style="display:none;"><button class="btn btn-primary" style="width:100%" onclick="getCroppedImg()">Crop & Download</button></div>
             </div>
         </section>
 
         <section id="imgResize" class="tool-section">
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">Advanced Image Resizer</h2>
+                <h2 style="margin: 20px 0;">Image Resizer</h2>
                 <input type="file" id="resizeInput" accept="image/*" onchange="previewResize(event)">
-                <div id="resizeControls" style="display:none; margin-top: 20px;">
-                    <div style="display: flex; gap: 15px;">
-                        <input type="number" id="resWidth" placeholder="Width">
-                        <input type="number" id="resHeight" placeholder="Height">
+                <div id="resizeSettings" style="display:none; margin-top:15px;">
+                    <div style="display:flex; gap:10px; margin-bottom:15px;">
+                        <div><label>Width (px)</label><input type="number" id="resWidth"></div>
+                        <div><label>Height (px)</label><input type="number" id="resHeight"></div>
                     </div>
-                    <button class="btn btn-primary" style="width:100%;" onclick="executeResize()">Resize & Download</button>
+                    <button class="btn btn-primary" style="width:100%" onclick="executeResize()">Resize & Download</button>
                 </div>
-            </div>
-        </section>
-
-        <section id="wordCounter" class="tool-section">
-            <div class="tool-container glass">
-                <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">Word Counter</h2>
-                <textarea id="wordInput" rows="8" placeholder="Type or paste text..." oninput="updateWordCount()"></textarea>
-                <div class="stat-grid">
-                    <div class="stat-item"><span class="stat-value" id="countWords">0</span>Words</div>
-                    <div class="stat-item"><span class="stat-value" id="countChars">0</span>Characters</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="gstTool" class="tool-section">
-            <div class="tool-container glass">
-                <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">GST Calculator</h2>
-                <input type="number" id="gstAmount" placeholder="Amount (₹)" oninput="calculateGST()">
-                <select id="gstRate" onchange="calculateGST()">
-                    <option value="5">5%</option><option value="12">12%</option><option value="18" selected>18%</option><option value="28">28%</option>
-                </select>
-                <div class="stat-grid">
-                    <div class="stat-item">Tax<span class="stat-value" id="gstTax">₹0</span></div>
-                    <div class="stat-item">Total<span class="stat-value" id="gstTotal">₹0</span></div>
-                </div>
+                <canvas id="resizeCanvas" style="display:none;"></canvas>
             </div>
         </section>
 
@@ -259,12 +193,9 @@
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
                 <h2 style="margin: 20px 0;">EMI Calculator</h2>
-                <label>Loan Amount (₹)</label>
-                <input type="number" id="loanAmt" placeholder="100000" oninput="calcEMI()">
-                <label>Interest Rate (%)</label>
-                <input type="number" id="loanRate" placeholder="10.5" oninput="calcEMI()">
-                <label>Tenure (Months)</label>
-                <input type="number" id="loanMonths" placeholder="12" oninput="calcEMI()">
+                <label>Loan Amount (₹)</label><input type="number" id="loanAmt" oninput="calcEMI()">
+                <label>Interest Rate (%)</label><input type="number" id="loanRate" oninput="calcEMI()">
+                <label>Tenure (Months)</label><input type="number" id="loanMonths" oninput="calcEMI()">
                 <div class="stat-grid">
                     <div class="stat-item">Monthly EMI<span class="stat-value" id="emiResult">₹0</span></div>
                     <div class="stat-item">Total Interest<span class="stat-value" id="emiInterest">₹0</span></div>
@@ -276,8 +207,7 @@
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
                 <h2 style="margin: 20px 0;">Age Calculator</h2>
-                <label>Select Date of Birth</label>
-                <input type="date" id="dobInput" onchange="calcAge()">
+                <label>Date of Birth</label><input type="date" id="dobInput" onchange="calcAge()">
                 <div class="stat-grid">
                     <div class="stat-item">Years<span class="stat-value" id="ageY">0</span></div>
                     <div class="stat-item">Months<span class="stat-value" id="ageM">0</span></div>
@@ -289,27 +219,30 @@
         <section id="mathTool" class="tool-section">
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">Standard Calculator</h2>
+                <h2 style="margin: 20px 0;">Calculator</h2>
                 <div class="calc-screen" id="calcDisplay">0</div>
                 <div class="calc-keys">
                     <button class="btn-calc" onclick="clearCalc()">C</button>
-                    <button class="btn-calc" onclick="inputCalc('/')">/</button>
-                    <button class="btn-calc" onclick="inputCalc('*')">×</button>
+                    <button class="btn-calc" onclick="inputCalc('Math.sin(')">sin</button>
+                    <button class="btn-calc" onclick="inputCalc('Math.cos(')">cos</button>
                     <button class="btn-calc" onclick="backspaceCalc()">⌫</button>
                     <button class="btn-calc" onclick="inputCalc('7')">7</button>
                     <button class="btn-calc" onclick="inputCalc('8')">8</button>
                     <button class="btn-calc" onclick="inputCalc('9')">9</button>
-                    <button class="btn-calc" onclick="inputCalc('-')">-</button>
+                    <button class="btn-calc" onclick="inputCalc('/')">/</button>
                     <button class="btn-calc" onclick="inputCalc('4')">4</button>
                     <button class="btn-calc" onclick="inputCalc('5')">5</button>
                     <button class="btn-calc" onclick="inputCalc('6')">6</button>
-                    <button class="btn-calc" onclick="inputCalc('+')">+</button>
+                    <button class="btn-calc" onclick="inputCalc('*')">×</button>
                     <button class="btn-calc" onclick="inputCalc('1')">1</button>
                     <button class="btn-calc" onclick="inputCalc('2')">2</button>
                     <button class="btn-calc" onclick="inputCalc('3')">3</button>
-                    <button class="btn-calc" style="grid-row: span 2; background: var(--accent); color: black;" onclick="equalCalc()">=</button>
-                    <button class="btn-calc" style="grid-column: span 2;" onclick="inputCalc('0')">0</button>
+                    <button class="btn-calc" onclick="inputCalc('-')">-</button>
+                    <button class="btn-calc" onclick="inputCalc('0')">0</button>
                     <button class="btn-calc" onclick="inputCalc('.')">.</button>
+                    <button class="btn-calc" onclick="inputCalc(')')">)</button>
+                    <button class="btn-calc" onclick="inputCalc('+')">+</button>
+                    <button class="btn-calc" style="grid-column: span 4; background:var(--accent); color:#000" onclick="equalCalc()">=</button>
                 </div>
             </div>
         </section>
@@ -317,98 +250,111 @@
         <section id="unitTool" class="tool-section">
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">Unit Converter (Length)</h2>
-                <label>From Value</label>
-                <input type="number" id="unitVal" value="1" oninput="convertUnits()">
+                <h2 style="margin: 20px 0;">Unit Converter</h2>
+                <label>Value</label><input type="number" id="unitInput" value="1" oninput="convertUnits()">
                 <div style="display:flex; gap:10px;">
-                    <select id="unitFrom" onchange="convertUnits()">
-                        <option value="m">Meter (m)</option>
-                        <option value="cm">Centimeter (cm)</option>
-                        <option value="km">Kilometer (km)</option>
-                        <option value="dm">Decimetre (dm)</option>
-                        <option value="mm">Millimeter (mm)</option>
-                    </select>
-                    <select id="unitTo" onchange="convertUnits()">
-                        <option value="cm">Centimeter (cm)</option>
-                        <option value="m">Meter (m)</option>
-                        <option value="km">Kilometer (km)</option>
-                        <option value="dm">Decimetre (dm)</option>
-                        <option value="mm">Millimeter (mm)</option>
-                    </select>
+                    <select id="unitFrom" onchange="convertUnits()"><option value="m">Meters</option><option value="km">Kilometers</option><option value="cm">Centimeters</option><option value="kg">Kilograms</option></select>
+                    <select id="unitTo" onchange="convertUnits()"><option value="cm">Centimeters</option><option value="m">Meters</option><option value="km">Kilometers</option><option value="kg">Kilograms</option></select>
                 </div>
                 <div class="stat-item" style="margin-top:20px;">Result<span class="stat-value" id="unitResult">100</span></div>
             </div>
         </section>
 
-        <section id="trigTool" class="tool-section">
+        <section id="gstTool" class="tool-section">
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">Trigonometry Calculator</h2>
-                <label>Degrees (°)</label>
-                <input type="number" id="trigInput" value="0" oninput="calcTrig()">
+                <h2 style="margin: 20px 0;">GST Calculator</h2>
+                <input type="number" id="gstAmount" placeholder="Amount" oninput="calculateGST()">
+                <select id="gstRate" onchange="calculateGST()"><option value="5">5%</option><option value="12">12%</option><option value="18" selected>18%</option><option value="28">28%</option></select>
                 <div class="stat-grid">
-                    <div class="stat-item">Sin<span class="stat-value" id="trigSin">0</span></div>
-                    <div class="stat-item">Cos<span class="stat-value" id="trigCos">1</span></div>
-                    <div class="stat-item">Tan<span class="stat-value" id="trigTan">0</span></div>
+                    <div class="stat-item">Tax<span class="stat-value" id="gstTax">₹0</span></div>
+                    <div class="stat-item">Total<span class="stat-value" id="gstTotal">₹0</span></div>
                 </div>
             </div>
         </section>
 
-        <div class="ad-banner">
-            <div>- Advertisement -</div>
-        </div>
+        <section id="wordCounter" class="tool-section">
+            <div class="tool-container glass">
+                <button class="btn btn-outline" onclick="showHome()">← Back</button>
+                <h2 style="margin: 20px 0;">Word Counter</h2>
+                <textarea id="wordInput" rows="8" placeholder="Paste text here..." oninput="updateWordCount()"></textarea>
+                <div class="stat-grid">
+                    <div class="stat-item">Words<span class="stat-value" id="countWords">0</span></div>
+                    <div class="stat-item">Chars<span class="stat-value" id="countChars">0</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacyPolicy" class="tool-section">
+            <div class="tool-container glass">
+                <button class="btn btn-outline" onclick="showHome()">← Back</button>
+                <h2 style="margin: 20px 0;">Privacy Policy</h2>
+                <p>VortexTools is committed to your privacy. All processing happens on the client-side (your browser). We do not collect, store, or share your personal files or calculation data. Your data never leaves your device.</p>
+            </div>
+        </section>
+
+        <section id="termsService" class="tool-section">
+            <div class="tool-container glass">
+                <button class="btn btn-outline" onclick="showHome()">← Back</button>
+                <h2 style="margin: 20px 0;">Terms of Service</h2>
+                <p>By using VortexTools, you agree that we are not liable for any errors in calculations or image processing. These tools are provided for free and without warranties. Commercial use is allowed, but redistribution of our source code is prohibited.</p>
+            </div>
+        </section>
+
+        <div class="ad-banner"><div>- Advertisement -</div></div>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 ToolHub All-in-One. Built for Performance.</p>
-            <div style="margin-top: 10px; display: flex; justify-content: center; gap: 20px;">
-                <a href="#" style="color: var(--text-dim); text-decoration: none;">Privacy Policy</a>
-                <a href="#" style="color: var(--text-dim); text-decoration: none;">Terms of Service</a>
-                <a href="#" style="color: var(--text-dim); text-decoration: none;">Contact Us</a>
+            <p>&copy; 2026 VortexTools | All-in-One Professional Suite</p>
+            <div class="footer-links" style="margin-top:10px;">
+                <a href="#" onclick="openTool('privacyPolicy')">Privacy Policy</a>
+                <a href="#" onclick="openTool('termsService')">Terms of Service</a>
             </div>
         </div>
     </footer>
 
-    <div id="toast">Action Successful!</div>
-
     <script>
-        // --- NAVIGATION ---
-        function openTool(id) {
-            document.getElementById('homePage').style.display = 'none';
-            document.querySelectorAll('.tool-section').forEach(s => s.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
-            window.scrollTo(0,0);
-        }
+        // --- NAVIGATION & AUTO-RESET (FIXED) ---
         function showHome() {
             document.getElementById('homePage').style.display = 'block';
             document.querySelectorAll('.tool-section').forEach(s => s.style.display = 'none');
+            
+            // RESET FILE INPUTS ON BACK
+            document.querySelectorAll('input[type="file"]').forEach(i => i.value = "");
+            
+            if (typeof cropper !== 'undefined' && cropper) { cropper.destroy(); cropper = null; }
+            document.getElementById('cropperBox').style.display = 'none';
+            document.getElementById('cropActions').style.display = 'none';
+            document.getElementById('resizeSettings').style.display = 'none';
+            window.scrollTo(0,0);
         }
+
+        function openTool(id) {
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
         function filterTools() {
             let val = document.getElementById('toolSearch').value.toLowerCase();
             document.querySelectorAll('.tool-card').forEach(c => {
                 c.style.display = c.innerText.toLowerCase().includes(val) ? "block" : "none";
             });
         }
-        function showToast(m) {
-            const t = document.getElementById('toast');
-            t.innerText = m; t.style.display = 'block';
-            setTimeout(() => t.style.display = 'none', 2000);
-        }
 
-        // --- EMI CALC ---
+        // --- EMI, AGE, MATH, UNITS, IMAGE TOOLS LOGIC ---
         function calcEMI() {
             const p = parseFloat(document.getElementById('loanAmt').value) || 0;
             const r = (parseFloat(document.getElementById('loanRate').value) || 0) / 12 / 100;
             const n = parseFloat(document.getElementById('loanMonths').value) || 0;
             if(p && r && n) {
                 const emi = p * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
-                document.getElementById('emiResult').innerText = "₹" + emi.toFixed(2);
-                document.getElementById('emiInterest').innerText = "₹" + (emi * n - p).toFixed(2);
+                document.getElementById('emiResult').innerText = "₹" + emi.toFixed(0);
+                document.getElementById('emiInterest').innerText = "₹" + (emi * n - p).toFixed(0);
             }
         }
 
-        // --- AGE CALC ---
         function calcAge() {
             const dob = new Date(document.getElementById('dobInput').value);
             const now = new Date();
@@ -418,70 +364,100 @@
             let d = now.getDate() - dob.getDate();
             if (d < 0) { m--; d += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
             if (m < 0) { y--; m += 12; }
-            document.getElementById('ageY').innerText = y;
-            document.getElementById('ageM').innerText = m;
-            document.getElementById('ageD').innerText = d;
+            document.getElementById('ageY').innerText = y; document.getElementById('ageM').innerText = m; document.getElementById('ageD').innerText = d;
         }
 
-        // --- MATH CALC ---
-        let calcExpr = "0";
-        function inputCalc(v) {
-            if(calcExpr === "0") calcExpr = v;
-            else calcExpr += v;
-            document.getElementById('calcDisplay').innerText = calcExpr;
-        }
-        function clearCalc() { calcExpr = "0"; document.getElementById('calcDisplay').innerText = "0"; }
-        function backspaceCalc() {
-            calcExpr = calcExpr.slice(0, -1);
-            if(calcExpr === "") calcExpr = "0";
-            document.getElementById('calcDisplay').innerText = calcExpr;
-        }
-        function equalCalc() {
-            try { calcExpr = eval(calcExpr).toString(); document.getElementById('calcDisplay').innerText = calcExpr; }
-            catch { document.getElementById('calcDisplay').innerText = "Error"; calcExpr = "0"; }
+        let expr = "0";
+        function inputCalc(v) { (expr === "0") ? expr = v : expr += v; document.getElementById('calcDisplay').innerText = expr; }
+        function clearCalc() { expr = "0"; document.getElementById('calcDisplay').innerText = "0"; }
+        function backspaceCalc() { expr = expr.slice(0,-1) || "0"; document.getElementById('calcDisplay').innerText = expr; }
+        function equalCalc() { 
+            try { 
+                let f = expr.replace(/sin\(/g, 'Math.sin(Math.PI/180*').replace(/cos\(/g, 'Math.cos(Math.PI/180*');
+                expr = eval(f).toString(); document.getElementById('calcDisplay').innerText = expr; 
+            } catch { document.getElementById('calcDisplay').innerText = "Error"; expr = "0"; } 
         }
 
-        // --- UNIT CONVERTER ---
         function convertUnits() {
-            const val = parseFloat(document.getElementById('unitVal').value) || 0;
+            const val = parseFloat(document.getElementById('unitInput').value) || 0;
             const from = document.getElementById('unitFrom').value;
             const to = document.getElementById('unitTo').value;
-            const factors = { mm: 1, cm: 10, dm: 100, m: 1000, km: 1000000 };
-            const result = (val * factors[from]) / factors[to];
-            document.getElementById('unitResult').innerText = result.toLocaleString();
+            const factor = { m:1, km:1000, cm:0.01, kg:1 };
+            document.getElementById('unitResult').innerText = ((val * factor[from]) / factor[to]).toFixed(4);
         }
 
-        // --- TRIGONOMETRY ---
-        function calcTrig() {
-            const deg = parseFloat(document.getElementById('trigInput').value) || 0;
-            const rad = deg * (Math.PI / 180);
-            document.getElementById('trigSin').innerText = Math.sin(rad).toFixed(4);
-            document.getElementById('trigCos').innerText = Math.cos(rad).toFixed(4);
-            document.getElementById('trigTan').innerText = (deg % 90 === 0 && deg % 180 !== 0) ? "∞" : Math.tan(rad).toFixed(4);
+        let cropper;
+        function initCropper(e) {
+            const file = e.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = document.getElementById('cropImage');
+                img.src = event.target.result;
+                document.getElementById('cropperBox').style.display = 'block';
+                document.getElementById('cropActions').style.display = 'block';
+                if(cropper) cropper.destroy();
+                cropper = new Cropper(img, { aspectRatio: NaN, viewMode: 1 });
+            };
+            reader.readAsDataURL(file);
         }
 
-        // (Previous Tool Scripts - Copied from original for functionality)
+        function getCroppedImg() {
+            const canvas = cropper.getCroppedCanvas();
+            const link = document.createElement('a');
+            link.download = 'cropped.png'; link.href = canvas.toDataURL(); link.click();
+        }
+
+        let originalImg = new Image();
+        function previewResize(e) {
+            const file = e.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                originalImg.src = event.target.result;
+                originalImg.onload = () => {
+                    document.getElementById('resWidth').value = originalImg.width;
+                    document.getElementById('resHeight').value = originalImg.height;
+                    document.getElementById('resizeSettings').style.display = 'block';
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function executeResize() {
+            const w = parseInt(document.getElementById('resWidth').value);
+            const h = parseInt(document.getElementById('resHeight').value);
+            const canvas = document.getElementById('resizeCanvas');
+            canvas.width = w; canvas.height = h;
+            canvas.getContext('2d').drawImage(originalImg, 0, 0, w, h);
+            const link = document.createElement('a');
+            link.download = 'resized.png'; link.href = canvas.toDataURL(); link.click();
+        }
+
         async function convertToPdf() {
             const files = document.getElementById('pdfInput').files;
-            if(files.length === 0) return alert("Select images!");
-            const { jsPDF } = window.jspdf; const doc = new jsPDF();
+            if(!files.length) return alert("Select images");
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
             for(let i=0; i<files.length; i++) {
-                const imgData = await readFileAsDataURL(files[i]);
+                const data = await new Promise(r => {
+                    const rd = new FileReader();
+                    rd.onload = e => r(e.target.result); rd.readAsDataURL(files[i]);
+                });
                 if(i > 0) doc.addPage();
-                doc.addImage(imgData, 'JPEG', 10, 10, doc.internal.pageSize.getWidth()-20, doc.internal.pageSize.getHeight()-20);
+                doc.addImage(data, 'JPEG', 10, 10, 190, 277);
             }
-            doc.save("toolhub.pdf");
+            doc.save('VortexTools.pdf');
         }
-        function readFileAsDataURL(file) { return new Promise(r => { const rd = new FileReader(); rd.onload = e => r(e.target.result); rd.readAsDataURL(file); }); }
-        
-        // ... (Remaining original functions: GST, Resizer, etc. are implicitly handled or can be added)
+
         function calculateGST() {
             const a = parseFloat(document.getElementById('gstAmount').value) || 0;
             const r = parseFloat(document.getElementById('gstRate').value);
-            const t = (a * r) / 100;
-            document.getElementById('gstTax').innerText = "₹" + t.toFixed(2);
-            document.getElementById('gstTotal').innerText = "₹" + (a + t).toFixed(2);
+            const tax = (a * r) / 100;
+            document.getElementById('gstTax').innerText = "₹" + tax.toFixed(2);
+            document.getElementById('gstTotal').innerText = "₹" + (a + tax).toFixed(2);
         }
+
         function updateWordCount() {
             const t = document.getElementById('wordInput').value.trim();
             document.getElementById('countWords').innerText = t ? t.split(/\s+/).length : 0;
