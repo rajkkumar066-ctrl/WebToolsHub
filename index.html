@@ -4,14 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>VortexTools | Free Online Image, PDF & Math Tools</title>
-    <meta name="description" content="VortexTools offers free online professional tools: Image to PDF, Cropper, Resizer, EMI Calculator, Age Calculator, and Scientific Math tools. No data storage, 100% secure.">
-    <meta name="keywords" content="Image to PDF, Image Cropper, EMI Calculator, Age Calculator, Unit Converter, GST Calculator, Word Counter, Online Tools, VortexTools">
+    <title>VortexTools | Free All-in-One Online Utility & Creator Tools</title>
+    <meta name="description" content="Access free online tools at VortexTools: Smart Word Counter with OCR, Image to PDF converter, Image Cropper, EMI & GST Calculators. Fast, secure, and browser-based.">
+    <meta name="keywords" content="Word Counter with Camera, Image to PDF, Online Image Cropper, EMI Calculator India, Age Calculator, GST Calculator Online, Scientific Calculator, VortexTools, Web Utilities">
+    <meta name="author" content="VortexTools">
+    <meta name="robots" content="index, follow">
     
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VortexTools | Professional Web Utilities">
+    <meta property="og:description" content="Smart tools for digital creators. Convert, calculate, and scan text instantly in your browser.">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "VortexTools",
+      "operatingSystem": "Any",
+      "applicationCategory": "UtilityApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
     
     <style>
         :root {
@@ -58,7 +76,6 @@
             border-radius: 12px;
             font-size: 0.8rem;
         }
-<script src="https://pl29084169.profitablecpmratenetwork.com/c0/fd/79/c0fd79c4dec9c2a4b242d24ef9742372.js"></script>
 
         .btn {
             padding: 12px 24px; border-radius: 12px; border: none;
@@ -111,7 +128,6 @@
         .btn-calc { padding: 15px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: white; cursor: pointer; font-size: 1.1rem; }
         .btn-calc:hover { background: rgba(255,255,255,0.2); }
 
-        /* SEO & Policy Styling */
         .seo-desc { margin-top: 50px; text-align: left; padding: 30px; color: var(--text-dim); }
         .seo-desc h2 { color: var(--accent); margin-bottom: 15px; }
         footer { border-top: 1px solid var(--glass-border); padding: 40px 0; margin-top: 60px; text-align: center; color: var(--text-dim); }
@@ -129,22 +145,8 @@
 
     <div class="container">
     
-    <!-- Ad Banner Top -->
-    <div class="ad-banner">
-        <div>- Advertisement Scroll down 👇🏻 
- -</div>
-    </div>
-
-    <!-- Ad Unit Start -->
-    <div class="ad-unit">
-        <script async="async" data-cfasync="false" 
-            src="https://pl29084170.profitablecpmratenetwork.com/938306cae2226864d9d991b249c8ea51/invoke.js">
-        </script>
-        <div id="container-938306cae2226864d9d991b249c8ea51"></div>
-    </div>
-    <!-- Ad Unit End -->
-
-</div>
+        <div class="ad-banner"><div>- Advertisement - Scroll Down 👇 -</div></div>
+        <script src="https://pl29084169.profitablecpmratenetwork.com/c0/fd/79/c0fd79c4dec9c2a4b242d24ef9742372.js"></script>
 
         <section id="homePage">
             <div class="hero">
@@ -154,20 +156,20 @@
             </div>
             
             <div class="tool-grid" id="toolGrid">
-                <div class="tool-card glass" onclick="openTool('imgToPdf')"><span class="tool-icon">📄</span><h3>Image to PDF</h3><p>Convert images to high-quality PDF.</p></div>
-                <div class="tool-card glass" onclick="openTool('imgCrop')"><span class="tool-icon">✂️</span><h3>Image Cropper</h3><p>Precision cropping and rotation.</p></div>
-                <div class="tool-card glass" onclick="openTool('imgResize')"><span class="tool-icon">📐</span><h3>Image Resizer</h3><p>Change pixel dimensions easily.</p></div>
-                <div class="tool-card glass" onclick="openTool('emiTool')"><span class="tool-icon">🏦</span><h3>EMI Calculator</h3><p>Loan and interest breakdown.</p></div>
-                <div class="tool-card glass" onclick="openTool('ageTool')"><span class="tool-icon">🎂</span><h3>Age Calculator</h3><p>Exact age in years, months, days.</p></div>
-                <div class="tool-card glass" onclick="openTool('mathTool')"><span class="tool-icon">🔢</span><h3>Scientific Calculator</h3><p>Standard and Trig functions.</p></div>
-                <div class="tool-card glass" onclick="openTool('unitTool')"><span class="tool-icon">📏</span><h3>Unit Converter</h3><p>Convert Length, Weight, Temp.</p></div>
-                <div class="tool-card glass" onclick="openTool('gstTool')"><span class="tool-icon">💰</span><h3>GST Calculator</h3><p>Quick tax calculations.</p></div>
-                <div class="tool-card glass" onclick="openTool('wordCounter')"><span class="tool-icon">📝</span><h3>Word Counter</h3><p>Text analysis tool.</p></div>
+                <div class="tool-card glass" onclick="openTool('imgToPdf', 'Image to PDF Converter')"><span class="tool-icon">📄</span><h3>Image to PDF</h3><p>Convert images to high-quality PDF.</p></div>
+                <div class="tool-card glass" onclick="openTool('imgCrop', 'Online Image Cropper')"><span class="tool-icon">✂️</span><h3>Image Cropper</h3><p>Precision cropping and rotation.</p></div>
+                <div class="tool-card glass" onclick="openTool('imgResize', 'Image Resizer Online')"><span class="tool-icon">📐</span><h3>Image Resizer</h3><p>Change pixel dimensions easily.</p></div>
+                <div class="tool-card glass" onclick="openTool('emiTool', 'EMI Calculator')"><span class="tool-icon">🏦</span><h3>EMI Calculator</h3><p>Loan and interest breakdown.</p></div>
+                <div class="tool-card glass" onclick="openTool('ageTool', 'Age Calculator')"><span class="tool-icon">🎂</span><h3>Age Calculator</h3><p>Exact age in years, months, days.</p></div>
+                <div class="tool-card glass" onclick="openTool('mathTool', 'Scientific Calculator')"><span class="tool-icon">🔢</span><h3>Calculator</h3><p>Standard and Trig functions.</p></div>
+                <div class="tool-card glass" onclick="openTool('unitTool', 'Unit Converter')"><span class="tool-icon">📏</span><h3>Unit Converter</h3><p>Convert Length, Weight, Temp.</p></div>
+                <div class="tool-card glass" onclick="openTool('gstTool', 'GST Calculator')"><span class="tool-icon">💰</span><h3>GST Calculator</h3><p>Quick tax calculations.</p></div>
+                <div class="tool-card glass" onclick="openTool('wordCounter', 'Smart Word Counter')"><span class="tool-icon">📝</span><h3>Word Counter</h3><p>Text analysis with OCR scanning.</p></div>
             </div>
 
             <div class="seo-desc glass">
                 <h2>All-in-One Professional Web Toolkit</h2>
-                <p>Welcome to <strong>VortexTools</strong>, the most reliable platform for digital creators and students. Our <strong>Image to PDF converter</strong> ensures your documents are ready in seconds. Use our <strong>Scientific Calculator</strong> for complex math or the <strong>EMI Calculator</strong> for financial planning. We prioritize your privacy—all tools work directly in your browser, meaning your files are never uploaded to our servers.</p>
+                <p>Welcome to <strong>VortexTools</strong>, the most reliable platform for digital creators and students. Our tools are 100% browser-based, ensuring your data is never stored on our servers. Whether you need to convert an <strong>Image to PDF</strong>, use our <strong>Scientific Calculator</strong>, or scan text from images using our <strong>Smart Word Counter</strong>, we have you covered.</p>
             </div>
         </section>
 
@@ -293,8 +295,18 @@
         <section id="wordCounter" class="tool-section">
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">Word Counter</h2>
-                <textarea id="wordInput" rows="8" placeholder="Paste text here..." oninput="updateWordCount()"></textarea>
+                <h2 style="margin: 20px 0;">Smart Word Counter (Scan Text)</h2>
+                <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                    <input type="file" id="ocrFile" accept="image/*" style="display:none;" onchange="processImage(this.files[0])">
+                    <button class="btn btn-primary" onclick="document.getElementById('ocrFile').click()">📁 Upload Image</button>
+                    <button class="btn btn-outline" id="camBtn" onclick="toggleCamera()">📷 Use Camera</button>
+                </div>
+                <div id="camContainer" style="display:none; margin-bottom:15px; text-align:center;">
+                    <video id="video" width="100%" autoplay style="border-radius:12px; background:#000;"></video>
+                    <button class="btn btn-primary" style="margin-top:10px;" onclick="capturePhoto()">Click & Scan</button>
+                </div>
+                <div id="ocrStatus" style="color: var(--accent); margin-bottom: 10px; font-weight: 600;"></div>
+                <textarea id="wordInput" rows="8" placeholder="Ya text yaha paste karein..." oninput="updateWordCount()"></textarea>
                 <div class="stat-grid">
                     <div class="stat-item">Words<span class="stat-value" id="countWords">0</span></div>
                     <div class="stat-item">Chars<span class="stat-value" id="countChars">0</span></div>
@@ -306,48 +318,40 @@
             <div class="tool-container glass">
                 <button class="btn btn-outline" onclick="showHome()">← Back</button>
                 <h2 style="margin: 20px 0;">Privacy Policy</h2>
-                <p>VortexTools is committed to your privacy. All processing happens on the client-side (your browser). We do not collect, store, or share your personal files or calculation data. Your data never leaves your device.</p>
+                <p>VortexTools is committed to your privacy. All processing happens locally in your browser. We do not store or transmit your images or personal data.</p>
             </div>
         </section>
-
-        <section id="termsService" class="tool-section">
-            <div class="tool-container glass">
-                <button class="btn btn-outline" onclick="showHome()">← Back</button>
-                <h2 style="margin: 20px 0;">Terms of Service</h2>
-                <p>By using VortexTools, you agree that we are not liable for any errors in calculations or image processing. These tools are provided for free and without warranties. Commercial use is allowed, but redistribution of our source code is prohibited.</p>
-            </div>
-        </section>
-
+        
         <div class="ad-banner"><div>- Advertisement -</div></div>
     </div>
 
     <footer>
         <div class="container">
             <p>&copy; 2026 VortexTools | All-in-One Professional Suite</p>
-            <div class="footer-links" style="margin-top:10px;">
-                <a href="#" onclick="openTool('privacyPolicy')">Privacy Policy</a>
-                <a href="#" onclick="openTool('termsService')">Terms of Service</a>
-            </div>
+            <div class="footer-links"><a href="#" onclick="openTool('privacyPolicy', 'Privacy')">Privacy Policy</a></div>
         </div>
     </footer>
 
     <script>
-        // --- NAVIGATION & AUTO-RESET (FIXED) ---
+        // --- NAVIGATION & RESET LOGIC ---
         function showHome() {
+            document.title = "VortexTools | Free Online Utility Tools";
             document.getElementById('homePage').style.display = 'block';
             document.querySelectorAll('.tool-section').forEach(s => s.style.display = 'none');
             
-            // RESET FILE INPUTS ON BACK
-            document.querySelectorAll('input[type="file"]').forEach(i => i.value = "");
+            // RESET ALL INPUTS
+            document.querySelectorAll('input[type="file"]').forEach(input => { input.value = ""; });
+            document.getElementById('ocrStatus').innerText = "";
+            document.getElementById('wordInput').value = "";
+            document.getElementById('countWords').innerText = "0";
+            document.getElementById('countChars').innerText = "0";
             
-            if (typeof cropper !== 'undefined' && cropper) { cropper.destroy(); cropper = null; }
-            document.getElementById('cropperBox').style.display = 'none';
-            document.getElementById('cropActions').style.display = 'none';
-            document.getElementById('resizeSettings').style.display = 'none';
+            stopCamera(); 
             window.scrollTo(0,0);
         }
 
-        function openTool(id) {
+        function openTool(id, title) {
+            document.title = title + " | VortexTools";
             document.getElementById('homePage').style.display = 'none';
             document.getElementById(id).style.display = 'block';
             window.scrollTo(0,0);
@@ -360,7 +364,122 @@
             });
         }
 
-        // --- EMI, AGE, MATH, UNITS, IMAGE TOOLS LOGIC ---
+        // --- WORD COUNTER (OCR) ---
+        let stream = null;
+        async function toggleCamera() {
+            const container = document.getElementById('camContainer');
+            const video = document.getElementById('video');
+            const btn = document.getElementById('camBtn');
+            if (container.style.display === 'none') {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                    video.srcObject = stream;
+                    container.style.display = 'block';
+                    btn.innerText = "❌ Close Camera";
+                } catch (err) { alert("Camera access allow karein."); }
+            } else { stopCamera(); }
+        }
+
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                if(document.getElementById('camContainer')) document.getElementById('camContainer').style.display = 'none';
+                if(document.getElementById('camBtn')) document.getElementById('camBtn').innerText = "📷 Use Camera";
+                stream = null;
+            }
+        }
+
+        function capturePhoto() {
+            const video = document.getElementById('video');
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            canvas.toBlob(blob => { processImage(blob); stopCamera(); }, 'image/jpeg');
+        }
+
+        function processImage(file) {
+            if (!file) return;
+            const status = document.getElementById('ocrStatus');
+            status.innerText = "⏳ Scanning Text...";
+            Tesseract.recognize(file, 'eng').then(({ data: { text } }) => {
+                document.getElementById('wordInput').value = text;
+                updateWordCount();
+                status.innerText = "✅ Scan Complete!";
+                setTimeout(() => status.innerText = "", 3000);
+            }).catch(err => { status.innerText = "❌ Scan Failed."; });
+        }
+
+        function updateWordCount() {
+            const t = document.getElementById('wordInput').value.trim();
+            document.getElementById('countWords').innerText = t ? t.split(/\s+/).length : 0;
+            document.getElementById('countChars').innerText = t.length;
+        }
+
+        // --- CORE TOOLS LOGIC ---
+        async function convertToPdf() {
+            const files = document.getElementById('pdfInput').files;
+            if(!files.length) return alert("Select images");
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            for(let i=0; i<files.length; i++) {
+                const data = await new Promise(r => {
+                    const rd = new FileReader();
+                    rd.onload = e => r(e.target.result); rd.readAsDataURL(files[i]);
+                });
+                if(i > 0) doc.addPage();
+                doc.addImage(data, 'JPEG', 10, 10, 190, 277);
+            }
+            doc.save('VortexTools.pdf');
+        }
+
+        let cropper;
+        function initCropper(e) {
+            const file = e.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = document.getElementById('cropImage');
+                img.src = event.target.result;
+                document.getElementById('cropperBox').style.display = 'block';
+                document.getElementById('cropActions').style.display = 'block';
+                if(cropper) cropper.destroy();
+                cropper = new Cropper(img, { viewMode: 1 });
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function getCroppedImg() {
+            const canvas = cropper.getCroppedCanvas();
+            const link = document.createElement('a');
+            link.download = 'cropped.png'; link.href = canvas.toDataURL(); link.click();
+        }
+
+        let originalImg = new Image();
+        function previewResize(e) {
+            const file = e.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                originalImg.src = event.target.result;
+                originalImg.onload = () => {
+                    document.getElementById('resWidth').value = originalImg.width;
+                    document.getElementById('resHeight').value = originalImg.height;
+                    document.getElementById('resizeSettings').style.display = 'block';
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function executeResize() {
+            const w = parseInt(document.getElementById('resWidth').value);
+            const h = parseInt(document.getElementById('resHeight').value);
+            const canvas = document.getElementById('resizeCanvas');
+            canvas.width = w; canvas.height = h;
+            canvas.getContext('2d').drawImage(originalImg, 0, 0, w, h);
+            const link = document.createElement('a');
+            link.download = 'resized.png'; link.href = canvas.toDataURL(); link.click();
+        }
+
         function calcEMI() {
             const p = parseFloat(document.getElementById('loanAmt').value) || 0;
             const r = (parseFloat(document.getElementById('loanRate').value) || 0) / 12 / 100;
@@ -403,82 +522,12 @@
             document.getElementById('unitResult').innerText = ((val * factor[from]) / factor[to]).toFixed(4);
         }
 
-        let cropper;
-        function initCropper(e) {
-            const file = e.target.files[0];
-            if(!file) return;
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                const img = document.getElementById('cropImage');
-                img.src = event.target.result;
-                document.getElementById('cropperBox').style.display = 'block';
-                document.getElementById('cropActions').style.display = 'block';
-                if(cropper) cropper.destroy();
-                cropper = new Cropper(img, { aspectRatio: NaN, viewMode: 1 });
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function getCroppedImg() {
-            const canvas = cropper.getCroppedCanvas();
-            const link = document.createElement('a');
-            link.download = 'cropped.png'; link.href = canvas.toDataURL(); link.click();
-        }
-
-        let originalImg = new Image();
-        function previewResize(e) {
-            const file = e.target.files[0];
-            if(!file) return;
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                originalImg.src = event.target.result;
-                originalImg.onload = () => {
-                    document.getElementById('resWidth').value = originalImg.width;
-                    document.getElementById('resHeight').value = originalImg.height;
-                    document.getElementById('resizeSettings').style.display = 'block';
-                }
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function executeResize() {
-            const w = parseInt(document.getElementById('resWidth').value);
-            const h = parseInt(document.getElementById('resHeight').value);
-            const canvas = document.getElementById('resizeCanvas');
-            canvas.width = w; canvas.height = h;
-            canvas.getContext('2d').drawImage(originalImg, 0, 0, w, h);
-            const link = document.createElement('a');
-            link.download = 'resized.png'; link.href = canvas.toDataURL(); link.click();
-        }
-
-        async function convertToPdf() {
-            const files = document.getElementById('pdfInput').files;
-            if(!files.length) return alert("Select images");
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            for(let i=0; i<files.length; i++) {
-                const data = await new Promise(r => {
-                    const rd = new FileReader();
-                    rd.onload = e => r(e.target.result); rd.readAsDataURL(files[i]);
-                });
-                if(i > 0) doc.addPage();
-                doc.addImage(data, 'JPEG', 10, 10, 190, 277);
-            }
-            doc.save('VortexTools.pdf');
-        }
-
         function calculateGST() {
             const a = parseFloat(document.getElementById('gstAmount').value) || 0;
             const r = parseFloat(document.getElementById('gstRate').value);
             const tax = (a * r) / 100;
             document.getElementById('gstTax').innerText = "₹" + tax.toFixed(2);
             document.getElementById('gstTotal').innerText = "₹" + (a + tax).toFixed(2);
-        }
-
-        function updateWordCount() {
-            const t = document.getElementById('wordInput').value.trim();
-            document.getElementById('countWords').innerText = t ? t.split(/\s+/).length : 0;
-            document.getElementById('countChars').innerText = t.length;
         }
     </script>
 </body>
